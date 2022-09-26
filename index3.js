@@ -1,12 +1,17 @@
-let str = "";
+const func = (str, letters) => {
+  if(!letters || letters.length === 0) {
+        return str;
+    };
 
-function func(string, letter) {
-    let arr = string.split('');
-    for (let i in arr) {
-        if (arr[i] == letter) {
-            arr.splice(i, 2);
-        }
+  const stringLetters = str.split('');
+  const resultLetters = [];
+  
+  for(let i in stringLetters) {
+    if(!letters.includes(stringLetters[i])) {
+      resultLetters.push(stringLetters[i]);
     }
-    return arr.join('');
-} 
-console.log(func("hello world", 'l', 'd')); 
+  }
+  return resultLetters.join('');
+};
+
+console.log(func("hello world", ['l', 'd'])); 
